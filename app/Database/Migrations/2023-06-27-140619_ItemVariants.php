@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class KelompokRally extends Migration
+class ItemVariants extends Migration
 {
     public function up()
     {
@@ -14,17 +14,33 @@ class KelompokRally extends Migration
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            'id_kelompok' => [
+            'id_item' => [
                 'type' => 'int',
                 'unsigned' => true,
             ],
-            'scene' => [
+            'repaired' => [
                 'type' => 'int',
                 'constraint' => 1,
             ],
-            'poin' => [
+            'image' => [
+                'type' => 'varchar',
+                'constraint' => 255
+            ],
+            'location_x' => [
                 'type' => 'int',
-                'constraint' => 12,
+                'constraint' => 3,
+            ],
+            'location_y' => [
+                'type' => 'int',
+                'constraint' => 3,
+            ],
+            'width' => [
+                'type' => 'int',
+                'constraint' => 3,
+            ],
+            'z-index' => [
+                'type' => 'int',
+                'constraint' => 3,
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
@@ -41,12 +57,12 @@ class KelompokRally extends Migration
         ];
         $this->forge->addField($fields);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('id_kelompok', 'kelompok', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('kelompok_rally');
+        $this->forge->addForeignKey('id_item', 'item', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('item_variants');
     }
 
     public function down()
     {
-        $this->forge->dropTable("kelompok_rally");
+        $this->forge->dropTable("item_variants");
     }
 }

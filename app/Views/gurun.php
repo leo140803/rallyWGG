@@ -8,43 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        $(document).ready(function() {
-            $(".loader").show().delay(5000).fadeOut();
-            $(".btn-coin").click(function() {
-                $(".shop").css("display", "block");
-            });
-
-            $(".img-back").click(function() {
-                $(".shop").css("display", "none");
-            })
-
-            $(".btn-buy").click(function() {
-                name = $(this).parent().parent().children(".name").children(".item-name").text();
-                harga = $(this).parent().children(".row").children(".col-2").children(".price-shop").text();
-                sure = "Apakah yakin ingin membeli " + name + " dengan harga " + harga + " koin?";
-                group = $(this).val();
-                Swal.fire({
-                    text: sure,
-                    icon: 'question',
-                    showCancelButton: true,
-                    confirmButtonColor: '#A6BB8D',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, buy!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $(".shop").css("display", "none");
-                        $(".loader").show().delay(5000).fadeOut();
-                        $("." + group).css("display", "none");
-                        $("." + group + "-repair").css({
-                            'display': 'block',
-                            'animation': 'newPurchase 10s ease-in-out',
-                        });
-                    }
-                })
-            })
-        });
-    </script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@300&display=swap');
@@ -472,27 +436,27 @@
     <div class="shop">
         <div class="row mt-5">
             <div class="col-3">
-                <img src="public/assets/back.png" alt="" class="img-back">
+                <img src="/assets/back.png" alt="" class="img-back">
             </div>
             <div class="col-6">
                 <div class="row">
                     <!-- ITEM 1 -->
                     <div class="col-4 card-item">
-                        <img src="public/assets/chedar.png" alt="" class="img-item chedar-img">
+                        <img src="/assets/chedar.png" alt="" class="img-item chedar-img">
                         <div class="name">
                             <h5 class="item-name">CHEDAR</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">200</h5>
                                 </div>
                             </div>
                             <button class="btn-buy" value="g1">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -500,21 +464,21 @@
 
                     <!-- ITEM 2 -->
                     <div class="col-4 card-item">
-                        <img src="public/assets/pohon.png" alt="" class="img-item pohon-img">
+                        <img src="/assets/pohon.png" alt="" class="img-item pohon-img">
                         <div class="name">
                             <h5 class="item-name">POHON 1</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">200</h5>
                                 </div>
                             </div>
                             <button class="btn-buy">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -522,21 +486,21 @@
 
                     <!-- ITEM 3 -->
                     <div class="col-4 card-item">
-                        <img src="public/assets/elm.png" alt="" class="img-item pohon-img">
+                        <img src="/assets/elm.png" alt="" class="img-item pohon-img">
                         <div class="name">
                             <h5 class="item-name">PHON 2</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">200</h5>
                                 </div>
                             </div>
                             <button class="btn-buy">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -547,21 +511,21 @@
 
                 <div class="row">
                     <div class="col-4 card-item">
-                        <img src="public/assets/butterfly.png" alt="" class="img-item btf-img">
+                        <img src="/assets/butterfly.png" alt="" class="img-item btf-img">
                         <div class="name">
                             <h5 class="item-name">BUTTERFLY</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">200</h5>
                                 </div>
                             </div>
-                            <button class="btn-buy" value="g2">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                            <button class="btn-buy" value="38">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -575,34 +539,34 @@
 
     <div class="main">
         <div class="pohon1 g1">
-            <img src="public/assets/gersang.png" alt="" class="pohon-gersang-1">
+            <img src="/assets/gersang.png" alt="" class="pohon-gersang-1">
         </div>
 
 
         <div class="butterfly">
-            <img src="public/assets/butterfly.png" alt="" class="img-butterfly g2-repair" id="btf1">
+            <img src="/assets/butterfly.png" alt="" class="img-butterfly g2-repair" id="btf1">
         </div>
 
         <div class="butterfly">
-            <img src="public/assets/butterfly.png" alt="" class="img-butterfly g2-repair" id="btf2">
+            <img src="/assets/butterfly.png" alt="" class="img-butterfly g2-repair" id="btf2">
         </div>
 
         <div class="pohon1 g1">
-            <img src="public/assets/gersang.png" alt="" class="pohon-gersang-2">
+            <img src="/assets/gersang.png" alt="" class="pohon-gersang-2">
         </div>
 
         <div class="pohon1">
-            <img src="public/assets/chedar.png" alt="" class="pohon-g1-1 g1-repair">
+            <img src="/assets/chedar.png" alt="" class="pohon-g1-1 g1-repair">
         </div>
 
         <div class="pohon1">
-            <img src="public/assets/chedar.png" alt="" class="pohon-g1-2 g1-repair">
+            <img src="/assets/chedar.png" alt="" class="pohon-g1-2 g1-repair">
         </div>
 
 
 
         <button class="btn-coin">
-            <img src="public/assets/coin.png" alt="Coin Image" class="img-coin">
+            <img src="/assets/coin.png" alt="Coin Image" class="img-coin">
             <h5 class="jumlah-coin">200</h5>
             <span class="text-shop">SHOP!</span>
         </button>
@@ -614,6 +578,63 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".loader").show().delay(1000).fadeOut();
+            $(".btn-coin").click(function() {
+                $(".shop").css("display", "block");
+            });
+
+            $(".img-back").click(function() {
+                $(".shop").css("display", "none");
+            })
+
+            $(".btn-buy").click(function() {
+                name = $(this).parent().parent().children(".name").children(".item-name").text();
+                harga = $(this).parent().children(".row").children(".col-2").children(".price-shop").text();
+                sure = "Apakah yakin ingin membeli " + name + " dengan harga " + harga + " koin?";
+                group = $(this).val();
+                Swal.fire({
+                    text: sure,
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#A6BB8D',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, buy!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "/buy",
+                            type: "POST",
+                            data : {
+                                'variant_id' : group,
+                            },
+                            success: function(data) {
+                                data = JSON.parse(data);
+                                Swal.fire({
+                                    title : data.title,
+                                    text: data.text,
+                                    icon: data.icon,
+                                    confirmButtonColor: '#A6BB8D',
+                                })
+
+                                if (data.icon == 'success') {
+                                    $(".shop").css("display", "none");
+                                    $(".loader").show().delay(5000).fadeOut();
+                                    $(".g2").css("display", "none");
+                                    $(".g2-repair").css({
+                                        'display': 'block',
+                                        'animation': 'newPurchase 10s ease-in-out',
+                                    });
+                                }
+                            }
+                        })
+                    }
+                })
+            })
+        });
+    </script>
 </body>
 
 </html>

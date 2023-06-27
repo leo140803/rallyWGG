@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class KelompokRally extends Migration
+class Item extends Migration
 {
     public function up()
     {
@@ -14,17 +14,17 @@ class KelompokRally extends Migration
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            'id_kelompok' => [
-                'type' => 'int',
-                'unsigned' => true,
+            'nama' => [
+                'type' => 'varchar',
+                'constraint' => 255,
             ],
             'scene' => [
                 'type' => 'int',
                 'constraint' => 1,
             ],
-            'poin' => [
+            'harga' => [
                 'type' => 'int',
-                'constraint' => 12,
+                'constraint' => 10,
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
@@ -41,12 +41,11 @@ class KelompokRally extends Migration
         ];
         $this->forge->addField($fields);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('id_kelompok', 'kelompok', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('kelompok_rally');
+        $this->forge->createTable('item');
     }
 
     public function down()
     {
-        $this->forge->dropTable("kelompok_rally");
+        $this->forge->dropTable("item");
     }
 }

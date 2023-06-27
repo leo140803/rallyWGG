@@ -19,4 +19,13 @@ class KelompokRallyModel extends Model
     public function add_point($id, $poin) {
         return $this->set('poin', 'poin+' . $poin, FALSE)->where('id_kelompok', $id)->update();
     }
+
+    /**
+      * Fungsi untuk mendapatkan poin kelompok
+      *
+      * @return App\Models\KelompokRallyModel
+      */
+    public function get_poin($id) {
+        return $this->select('poin')->where('id_kelompok', $id)->get()->getResult()[0];
+    }
 }

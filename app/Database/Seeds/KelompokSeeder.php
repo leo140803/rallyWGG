@@ -28,6 +28,7 @@ class KelompokSeeder extends Seeder
             $dataKelRally = [
                 'id_kelompok' => $i,
                 'poin' => 200,
+                'scene' => $faker->numberBetween(1, 3),
                 'created_at' => Time::now(),
                 'updated_at' => Time::now(),          
             ];

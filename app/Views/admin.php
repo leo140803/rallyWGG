@@ -77,7 +77,7 @@
                             <label for="input-kelompok">Pilih Kelompok</label>
                             <select class="form-control <?= ($validation->hasError('input-kelompok') ? 'is-invalid' : ''); ?>" id="input-kelompok" name="input-kelompok" data-live-search="true" data-size="5" required>
                                 <?php foreach($kelompok as $k): ?>
-                                    <option value="<?= $k->nama ?>" data-tokens="<?= $k->nama ?>"><?= $k->nama ?></option>
+                                    <option value="<?= $k ?>" data-tokens="<?= $k ?>"><?= $k ?></option>
                                 <?php endforeach; ?>
                             </select>
 

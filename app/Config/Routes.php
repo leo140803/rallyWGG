@@ -32,6 +32,7 @@ $routes->set404Override();
 $routes->get('/', 'Rally::index');
 $routes->get('/admin', 'Rally::add_point');
 $routes->post('/update_point', 'Rally::update_point');
+$routes->post('/buy', 'Rally::buy');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
