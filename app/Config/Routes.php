@@ -29,8 +29,9 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/admin', 'Home::admin');
+$routes->get('/', 'Rally::index');
+$routes->get('/admin', 'Rally::add_point');
+$routes->post('/update_point', 'Rally::update_point');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

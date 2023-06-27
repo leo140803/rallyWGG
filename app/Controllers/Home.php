@@ -13,8 +13,8 @@ class Home extends BaseController
         return view('gurun');
     }
 
-    public function admin()
-    {
-        return view('admin');
-    }
+    // public function admin()
+    // {
+    //     return view('admin');
+    // }
 }
