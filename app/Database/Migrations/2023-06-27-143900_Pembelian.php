@@ -18,7 +18,7 @@ class Pembelian extends Migration
                 'type' => 'int',
                 'unsigned' => true,
             ],
-            'id_variant' => [
+            'id_item' => [
                 'type' => 'int',
                 'unsigned' => true,
             ],
@@ -37,8 +37,8 @@ class Pembelian extends Migration
         ];
         $this->forge->addField($fields);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('id_kelompok', 'kelompok', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('id_variant', 'item_variants', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_kelompok', 'kelompok_rally', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_item', 'item', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('pembelian');
     }
 

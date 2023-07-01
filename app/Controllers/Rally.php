@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\ItemModel;
-use App\Models\VariantModel;
 use App\Models\KelompokModel;
 use App\Models\PembelianModel;
 use App\Models\KelompokRallyModel;
@@ -15,7 +14,6 @@ class Rally extends BaseController
     protected $kelompokRally;
     protected $kelompok;
     protected $item;
-    protected $variant;
     protected $pembelian;
     protected $db;
 
@@ -24,7 +22,6 @@ class Rally extends BaseController
         $this->kelompokRally = new KelompokRallyModel();
         $this->kelompok = new KelompokModel();
         $this->item = new ItemModel();
-        $this->variant = new VariantModel();
         $this->pembelian = new PembelianModel();
         $this->db = \Config\Database::connect();
     }
@@ -36,8 +33,17 @@ class Rally extends BaseController
      */
     public function index()
     {
-        session()->set('kelompok', $this->kelompokRally->find(3));
-        return view('gurun');
+        session()->set('kelompok', $this->kelompokRally->find(6));
+        $tmp = $this->pembelian->get_records();
+        $records = [];
+        foreach($tmp as $t)
+            $records[] = $t['id_item'];
+
+        return view('gurun', [
+            'shop' => $this->item->get_shop_item($records),
+            'display' => $this->item->get_display_item($records),
+            'coin' => $this->kelompokRally->get_poin(session()->get('kelompok')['id'])
+        ]);
     }
 
     public function eco()
@@ -107,24 +113,24 @@ class Rally extends BaseController
      */
     public function buy()
     {
-        $variant_id = $this->request->getVar('variant_id');
-        $toBuy = $this->item->get_item($variant_id);
-        $item_name = $toBuy['nama'];
-        $result = [
+        $item_id = $this->request->getVar('item_id');
+        $toBuy = $this->item->find($item_id);
+
+        $alerts = [
             [
                 'icon' => 'error',
                 'title' => 'Gagal!',
-                'text' => 'Gagal membeli barang ' . $item_name . ', silahkan coba lagi'
+                'text' => 'Gagal membeli barang ' . $toBuy['nama'] . ', silahkan coba lagi'
             ],
             [
                 'icon' => 'success',
                 'title' => 'Sukses!',
-                'text' => 'Berhasil membeli ' . $item_name
+                'text' => 'Berhasil membeli ' . $toBuy['nama']
             ],
             [
                 'icon' => 'error',
                 'title' => 'Gagal!',
-                'text' => 'Poin mu tidak cukup untuk membeli ' . $item_name
+                'text' => 'Poin mu tidak cukup untuk membeli ' . $toBuy['nama']
             ],
             [
                 'icon' => 'error',
@@ -133,39 +139,84 @@ class Rally extends BaseController
             ],
         ];
 
-        // cek kembar
-        if ($this->pembelian->cek_kembar(session()->get('kelompok')['id_kelompok'], $variant_id)) {
-            dd("kembar");
-            return $result[3];
+        // cek pembelian kembar
+        if ($this->pembelian->cek_kembar(session()->get('kelompok')['id_kelompok'], $item_id)) {
+            // sudah pernah dibeli
+            return json_encode([
+                'response' => $alerts[3],
+                'item' => null,
+                'coin' => $this->kelompokRally->get_poin(session()->get('kelompok')['id_kelompok']),
+            ]);
         }
 
         // cek barang
         if ($toBuy && $toBuy['repaired'] == 1) {
+            $items[] = $toBuy;
+
             // cek scene
             if (intval($toBuy['scene']) != intval(session()->get('kelompok')['scene'])) {
-                return json_encode($result[0], $this->kelompokRally->get_coin(session()->get('kelompok')['id_kelompok']));
+                return json_encode([
+                    'response' => $alerts[0],
+                    'item' => null,
+                    'coin' => $this->kelompokRally->get_poin(session()->get('kelompok')['id_kelompok']),
+                ]);
             }
 
             // cek poin
             if ($this->kelompokRally->get_poin(session()->get('kelompok')['id_kelompok'])->poin >= intval($toBuy['harga'])) {
+                // beli 5 barang, Tuhan berikan langit baru
+                if (count($this->pembelian->get_records()) == 4) {
+                    $items[] = $this->item->find(6);
+                }
+
+                // beli bukit bonus tanah bosqu
+                if ($item_id == 11) {
+                    $items[] = $this->item->find(8);
+                }
+
                 try {
                     $this->db->transException(true)->transStart();
 
                     $this->kelompokRally->add_point(session()->get('kelompok')['id_kelompok'], -intval($toBuy['harga']));
-                    $this->pembelian->insert([
-                        'id_kelompok' => session()->get('kelompok')['id_kelompok'],
-                        'id_variant' => $variant_id,
-                    ]);
+                    foreach($items as $i) {
+                        $this->pembelian->insert([
+                            'id_kelompok' => session()->get('kelompok')['id_kelompok'],
+                            'id_item' => $i['id'],
+                        ]);
+                    }
 
                     $this->db->transComplete();
                 } catch (DatabaseException $e) {
-                    return json_encode($result[0]);
+                    // dd($e);
+                    // gagal insert
+                    return json_encode([
+                        'response' => $alerts[0],
+                        'item' => null,
+                        'coin' => $this->kelompokRally->get_poin(session()->get('kelompok')['id_kelompok']),
+                    ]);
                 }
 
-                return json_encode($result[1]);
+                // sukses insert
+                return json_encode([
+                    'response' => $alerts[1],
+                    'item' => $items,
+                    'coin' => $this->kelompokRally->get_poin(session()->get('kelompok')['id_kelompok']),
+                ]);
             }
-            return json_encode($result[2]);
+
+            // poin ga cukup
+            return json_encode([
+                'response' => $alerts[2],
+                'item' => null,
+                'coin' => $this->kelompokRally->get_poin(session()->get('kelompok')['id_kelompok']),
+            ]);
         }
-        return json_encode($result[0]);
+
+        // barang invalid
+        return json_encode([
+            'response' => $alerts[0],
+            'item' => null,
+            'coin' => $this->kelompokRally->get_poin(session()->get('kelompok')['id_kelompok']),
+        ]);
     }
 }

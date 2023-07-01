@@ -502,20 +502,20 @@
     <div class="shop">
         <div class="row mt-5">
             <div class="col-3">
-                <img src="public/assets/back.png" alt="" class="img-back">
+                <img src="/assets/back.png" alt="" class="img-back">
             </div>
             <div class="col-6">
                 <div class="row">
                     <!-- ITEM 1 -->
                     <div class="col-4 card-item">
-                        <img src="public/assets/climate/pohon-merah-shop.png" alt="" class="img-item">
+                        <img src="/assets/climate/pohon-merah-shop.png" alt="" class="img-item">
                         <div class="name">
                             <h5 class="item-name">POHON 1</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">10</h5>
@@ -523,7 +523,7 @@
                             </div>
                             <!-- IKI VALUE E SESUAI ID E SG RUSAK NGAB -->
                             <button class="btn-buy" value="g4">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -531,21 +531,21 @@
 
                     <!-- ITEM 2 -->
                     <div class="col-4 card-item">
-                        <img src="public/assets/climate/pohon-kuning-shop.png" alt="" class="img-item">
+                        <img src="/assets/climate/pohon-kuning-shop.png" alt="" class="img-item">
                         <div class="name">
                             <h5 class="item-name">POHON 2</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">10</h5>
                                 </div>
                             </div>
                             <button class="btn-buy" value="g5">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -553,21 +553,21 @@
 
                     <!-- ITEM 3 -->
                     <div class="col-4 card-item">
-                        <img src="public/assets/climate/bukit-shop.png" alt="" class="img-item">
+                        <img src="/assets/climate/bukit-shop.png" alt="" class="img-item">
                         <div class="name">
                             <h5 class="item-name">BUKIT</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">15</h5>
                                 </div>
                             </div>
                             <button class="btn-buy" value="g2">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -577,63 +577,63 @@
 
                 <div class="row">
                     <div class="col-4 card-item">
-                        <img src="public/assets/climate/sungai-shop.png" alt="" class="img-item">
+                        <img src="/assets/climate/sungai-shop.png" alt="" class="img-item">
                         <div class="name">
                             <h5 class="item-name">SUNGAI</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">20</h5>
                                 </div>
                             </div>
                             <button class="btn-buy" value="g3">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
                     </div>
 
                     <div class="col-4 card-item">
-                        <img src="public/assets/climate/rumput-shop.png" alt="" class="img-item">
+                        <img src="/assets/climate/rumput-shop.png" alt="" class="img-item">
                         <div class="name">
                             <h5 class="item-name">RUMPUT</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">5</h5>
                                 </div>
                             </div>
                             <button class="btn-buy" value="new7">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
                     </div>
 
                     <div class="col-4 card-item">
-                        <img src="public/assets/climate/buah-shop.png" alt="" class="img-item">
+                        <img src="/assets/climate/buah-shop.png" alt="" class="img-item">
                         <div class="name">
                             <h5 class="item-name">BUAH</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">20</h5>
                                 </div>
                             </div>
                             <button class="btn-buy" value="new4">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -642,21 +642,21 @@
 
                 <div class="row">
                     <div class="col-4 card-item">
-                        <img src="public/assets/climate/bunga-shop.png" alt="" class="img-item">
+                        <img src="/assets/climate/bunga-shop.png" alt="" class="img-item">
                         <div class="name">
                             <h5 class="item-name">BUNGA</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">25</h5>
                                 </div>
                             </div>
                             <button class="btn-buy" value="new5">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -664,42 +664,42 @@
 
 
                     <div class="col-4 card-item">
-                        <img src="public/assets/climate/kupu-shop.png" alt="" class="img-item">
+                        <img src="/assets/climate/kupu-shop.png" alt="" class="img-item">
                         <div class="name">
                             <h5 class="item-name">Kupu-kupu</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">30</h5>
                                 </div>
                             </div>
                             <button class="btn-buy" value="new6">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
                     </div>
 
                     <div class="col-4 card-item">
-                        <img src="public/assets/climate/jerapah-shop.png" alt="" class="img-item">
+                        <img src="/assets/climate/jerapah-shop.png" alt="" class="img-item">
                         <div class="name">
                             <h5 class="item-name">jerapah</h5>
                         </div>
                         <div class="item-harga">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                                    <img src="/assets/coin.png" alt="" class="coin-shop">
                                 </div>
                                 <div class="col-2">
                                     <h5 class="price-shop">30</h5>
                                 </div>
                             </div>
                             <button class="btn-buy" value="new1">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
+                                <img src="/assets/cart.png" alt="" class="img-cart">
                                 <h5 class="text-buy">BUY!</h5>
                             </button>
                         </div>
@@ -714,7 +714,7 @@
 
     <div class="main">
         <button class="btn-coin">
-            <img src="public/assets/coin.png" alt="Coin Image" class="img-coin">
+            <img src="/assets/coin.png" alt="Coin Image" class="img-coin">
             <h5 class="jumlah-coin">200</h5>
             <span class="text-shop">SHOP!</span>
         </button>
@@ -729,32 +729,32 @@
 
 
         <!-- BACKGROUND -->
-        <img src="public/assets/eco/background.png" alt="" class="background">
-        <img src="public/assets/eco/sky.png" alt="" class="sky">
-        <img src="public/assets/eco/road.png" alt="" class="road">
+        <img src="/assets/eco/background.png" alt="" class="background">
+        <img src="/assets/eco/sky.png" alt="" class="sky">
+        <img src="/assets/eco/road.png" alt="" class="road">
 
 
         <!-- GEDUNG -->
-        <img src="public/assets/eco/blue1.png" alt="" class="g1">
-        <img src="public/assets/eco/blue2.png" alt="" class="g1">
-        <img src="public/assets/eco/purple.png" alt="" class="g2">
-        <img src="public/assets/eco/green1.png" alt="" class="g3">
-        <img src="public/assets/eco/green2.png" alt="" class="g3">
-        <img src="public/assets/eco/yellow1.png" alt="" class="g4">
-        <img src="public/assets/eco/yellow2.png" alt="" class="g4">
-        <img src="public/assets/eco/orange1.png" alt="" class="g5">
-        <img src="public/assets/eco/orange2.png" alt="" class="g5">
-        <img src="public/assets/eco/red.png" alt="" class="g6">
+        <img src="/assets/eco/blue1.png" alt="" class="g1">
+        <img src="/assets/eco/blue2.png" alt="" class="g1">
+        <img src="/assets/eco/purple.png" alt="" class="g2">
+        <img src="/assets/eco/green1.png" alt="" class="g3">
+        <img src="/assets/eco/green2.png" alt="" class="g3">
+        <img src="/assets/eco/yellow1.png" alt="" class="g4">
+        <img src="/assets/eco/yellow2.png" alt="" class="g4">
+        <img src="/assets/eco/orange1.png" alt="" class="g5">
+        <img src="/assets/eco/orange2.png" alt="" class="g5">
+        <img src="/assets/eco/red.png" alt="" class="g6">
 
         <!-- MOBIL -->
-        <img src="public/assets/eco/car1.png" alt="" class="g7">
-        <img src="public/assets/eco/car2.png" alt="" class="g7">
-        <img src="public/assets/eco/car3.png" alt="" class="g7">
-        <img src="public/assets/eco/car4.png" alt="" class="g7">
-        <img src="public/assets/eco/car5.png" alt="" class="g7">
+        <img src="/assets/eco/car1.png" alt="" class="g7">
+        <img src="/assets/eco/car2.png" alt="" class="g7">
+        <img src="/assets/eco/car3.png" alt="" class="g7">
+        <img src="/assets/eco/car4.png" alt="" class="g7">
+        <img src="/assets/eco/car5.png" alt="" class="g7">
 
         <!-- TREE -->
-        <img src="public/assets/eco/tree.png" alt="" class="g8">
+        <img src="/assets/eco/tree.png" alt="" class="g8">
     </div>
 
 
