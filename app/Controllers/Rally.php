@@ -19,7 +19,8 @@ class Rally extends BaseController
     protected $pembelian;
     protected $db;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->kelompokRally = new KelompokRallyModel();
         $this->kelompok = new KelompokModel();
         $this->item = new ItemModel();
@@ -32,18 +33,26 @@ class Rally extends BaseController
      * Halaman utama mahasiswa
      * 
      * @return CodeIgniter\HTTP\Message
-    */
-    public function index() {
+     */
+    public function index()
+    {
         session()->set('kelompok', $this->kelompokRally->find(3));
         return view('gurun');
+    }
+
+    public function eco()
+    {
+        session()->set('kelompok', $this->kelompokRally->find(3));
+        return view('economic');
     }
 
     /**
      * Halaman admin buat update poin
      * 
      * @return CodeIgniter\HTTP\Message
-    */
-    public function add_point() {
+     */
+    public function add_point()
+    {
         $validation = (session()->get('validation') ?? \Config\Services::validation());
         return view('admin', [
             'kelompok' => $this->kelompok->findColumn('nama'),
@@ -55,13 +64,14 @@ class Rally extends BaseController
      * Fungsi update poin kelompok
      * 
      * @return CodeIgniter\HTTP\Message
-    */
-    public function update_point() {
+     */
+    public function update_point()
+    {
         $validasi = [
             'input-kelompok' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Nama kelompok harus diisi',      
+                    'required' => 'Nama kelompok harus diisi',
                 ]
             ],
             'input-poin' => [
@@ -94,8 +104,9 @@ class Rally extends BaseController
      * Fungsi untuk membeli barang
      * 
      * @return array
-    */
-    public function buy() {
+     */
+    public function buy()
+    {
         $variant_id = $this->request->getVar('variant_id');
         $toBuy = $this->item->get_item($variant_id);
         $item_name = $toBuy['nama'];
@@ -103,7 +114,7 @@ class Rally extends BaseController
             [
                 'icon' => 'error',
                 'title' => 'Gagal!',
-                'text' => 'Gagal membeli barang ' . $item_name .', silahkan coba lagi'
+                'text' => 'Gagal membeli barang ' . $item_name . ', silahkan coba lagi'
             ],
             [
                 'icon' => 'success',
@@ -113,7 +124,7 @@ class Rally extends BaseController
             [
                 'icon' => 'error',
                 'title' => 'Gagal!',
-                'text' => 'Poin mu tidak cukup untuk membeli ' . $item_name 
+                'text' => 'Poin mu tidak cukup untuk membeli ' . $item_name
             ],
             [
                 'icon' => 'error',
@@ -147,8 +158,7 @@ class Rally extends BaseController
                     ]);
 
                     $this->db->transComplete();
-                } 
-                catch (DatabaseException $e) {
+                } catch (DatabaseException $e) {
                     return json_encode($result[0]);
                 }
 

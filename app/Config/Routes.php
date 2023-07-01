@@ -30,6 +30,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Rally::index');
+$routes->get('/eco', 'Rally::eco');
 $routes->get('/admin', 'Rally::add_point');
 $routes->post('/update_point', 'Rally::update_point');
 $routes->post('/buy', 'Rally::buy');
