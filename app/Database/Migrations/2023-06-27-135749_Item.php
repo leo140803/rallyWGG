@@ -26,6 +26,31 @@ class Item extends Migration
                 'type' => 'int',
                 'constraint' => 10,
             ],
+            'repaired' => [
+                'type' => 'int',
+                'constraint' => 1,
+            ],
+            'image' => [
+                'type' => 'varchar',
+                'constraint' => 255
+            ],
+            'shop_image' => [
+                'type' => 'varchar',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'width' => [
+                'type' => 'int',
+                'constraint' => 3,
+            ],
+            'height' => [
+                'type' => 'int',
+                'constraint' => 3,
+            ],
+            'z-index' => [
+                'type' => 'int',
+                'constraint' => 3,
+            ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
                 'null' => true
