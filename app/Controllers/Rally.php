@@ -3,11 +3,13 @@
 namespace App\Controllers;
 
 use App\Models\ItemModel;
+use App\Models\ItemImgModel;
 use App\Models\KelompokModel;
 use App\Models\PembelianModel;
 use App\Models\KelompokRallyModel;
 use App\Controllers\BaseController;
 use CodeIgniter\Database\Exceptions\DatabaseException;
+use CodeIgniter\I18n\Time;
 
 class Rally extends BaseController
 {
@@ -15,6 +17,7 @@ class Rally extends BaseController
     protected $kelompok;
     protected $item;
     protected $pembelian;
+    protected $itemImg;
     protected $db;
 
     public function __construct()
@@ -23,6 +26,7 @@ class Rally extends BaseController
         $this->kelompok = new KelompokModel();
         $this->item = new ItemModel();
         $this->pembelian = new PembelianModel();
+        $this->itemImg = new ItemImgModel();
         $this->db = \Config\Database::connect();
     }
 
@@ -33,17 +37,24 @@ class Rally extends BaseController
      */
     public function index()
     {
-        session()->set('kelompok', $this->kelompokRally->find(6));
+        session()->set('kelompok', $this->kelompokRally->find(2));
         $tmp = $this->pembelian->get_records();
         $records = [];
         foreach($tmp as $t)
             $records[] = $t['id_item'];
 
-        return view('gurun', [
+        $data = [
             'shop' => $this->item->get_shop_item($records),
             'display' => $this->item->get_display_item($records),
             'coin' => $this->kelompokRally->get_poin(session()->get('kelompok')['id'])
-        ]);
+        ];
+
+        if (session()->get('kelompok')['scene'] == 1) {
+            return view('gurun', $data);
+        }
+        else if (session()->get('kelompok')['scene'] == 2) {
+            return view('economic', $data);
+        }
     }
 
     public function eco()
@@ -151,7 +162,7 @@ class Rally extends BaseController
 
         // cek barang
         if ($toBuy && $toBuy['repaired'] == 1) {
-            $items[] = $toBuy;
+            $items = $this->item->get_item([$item_id]);
 
             // cek scene
             if (intval($toBuy['scene']) != intval(session()->get('kelompok')['scene'])) {
@@ -165,23 +176,32 @@ class Rally extends BaseController
             // cek poin
             if ($this->kelompokRally->get_poin(session()->get('kelompok')['id_kelompok'])->poin >= intval($toBuy['harga'])) {
                 // beli 5 barang, Tuhan berikan langit baru
-                if (count($this->pembelian->get_records()) == 4) {
-                    $items[] = $this->item->find(6);
+                if (count($this->pembelian->get_records()) == 4 && session()->get('kelompok')['scene'] == 1) {
+                    $items[] = $this->item->get_item([6])[0];
                 }
 
                 // beli bukit bonus tanah bosqu
                 if ($item_id == 11) {
-                    $items[] = $this->item->find(8);
+                    $items[] = $this->item->get_item([8])[0];
                 }
+
+                // return json_encode($items);
+                foreach($items as $i)
+                    $insert_id[] = $i['id_item'];
+
+                $insert_id = array_unique($insert_id);
 
                 try {
                     $this->db->transException(true)->transStart();
 
                     $this->kelompokRally->add_point(session()->get('kelompok')['id_kelompok'], -intval($toBuy['harga']));
-                    foreach($items as $i) {
+
+                    foreach($insert_id as $i) {
                         $this->pembelian->insert([
                             'id_kelompok' => session()->get('kelompok')['id_kelompok'],
-                            'id_item' => $i['id'],
+                            'id_item' => $i,
+                            'created_at' => Time::now(),
+                            'updated_at' => Time::now(),
                         ]);
                     }
 

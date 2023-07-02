@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Item extends Migration
+class ItemImages extends Migration
 {
     public function up()
     {
@@ -14,38 +14,13 @@ class Item extends Migration
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            'nama' => [
+            'id_item' => [
+                'type' => 'int',
+                'unsigned' => true,
+            ],
+            'image' => [
                 'type' => 'varchar',
                 'constraint' => 255,
-            ],
-            'scene' => [
-                'type' => 'int',
-                'constraint' => 1,
-            ],
-            'harga' => [
-                'type' => 'int',
-                'constraint' => 10,
-            ],
-            'repaired' => [
-                'type' => 'int',
-                'constraint' => 1,
-            ],
-            'shop_image' => [
-                'type' => 'varchar',
-                'constraint' => 255,
-                'null' => true,
-            ],
-            'width' => [
-                'type' => 'int',
-                'constraint' => 3,
-            ],
-            'height' => [
-                'type' => 'int',
-                'constraint' => 3,
-            ],
-            'z-index' => [
-                'type' => 'int',
-                'constraint' => 3,
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
@@ -62,11 +37,12 @@ class Item extends Migration
         ];
         $this->forge->addField($fields);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('item');
+        $this->forge->addForeignKey('id_item', 'item', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('item_img');
     }
 
     public function down()
     {
-        $this->forge->dropTable("item");
+        $this->forge->dropTable("item_img");
     }
 }

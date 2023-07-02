@@ -14,7 +14,7 @@ class ItemModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'scene', 'harga', 'repaired', 'image', 'shop_image', 'width', 'height', 'z-index', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields    = ['nama', 'scene', 'harga', 'repaired', 'shop_image', 'width', 'height', 'z-index', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
       * Fungsi untuk mendapatkan item yang akan ditampilkan
@@ -23,9 +23,9 @@ class ItemModel extends Model
       * @return App\Models\ItemModel
       */
     public function get_display_item($records) {
-        $default = $this->get_unrepaired_item();
-        // dd($default);
-        $q = $this->where('scene', session()->get('kelompok')['scene']);
+        $default = $this->get_broken_item();
+
+        $q = $this->join('item_img', 'item_img.id_item = item.id')->where('scene', session()->get('kelompok')['scene']);
 
         // blm pernah beli
         if (count($records) == 0) {
@@ -34,19 +34,16 @@ class ItemModel extends Model
 
         // sdh pernah beli
         else {
-          $q = $q->whereIn('id', $records)->findAll();
-          // $items = array_merge($q, $default);
-          foreach($q as $item) {
-            foreach($default as $d) {
-              if ($item['nama'] == $d['nama']) {
+          $q = $q->whereIn('item.id', $records)->findAll();
+
+          foreach($q as $item)
+            foreach($default as $d)
+              if ($item['nama'] == $d['nama'])
                 unset($default[array_search($d, $default)]);
-              }
-            }
-          }
+
           $items = array_merge($q, $default);
         }
 
-        // dd($items);
         return $items;
     }
 
@@ -73,11 +70,16 @@ class ItemModel extends Model
     }
 
     
-    public function get_unrepaired_item() {
-        return $this->where([
+    public function get_broken_item() {
+        return $this->join('item_img', 'item_img.id_item = item.id')
+        ->where([
           'scene' => session()->get('kelompok')['scene'],
           'repaired' => 0,
         ])
         ->findAll();
+    }
+
+    public function get_item($id) {
+      return $this->join('item_img', 'item_img.id_item = item.id')->whereIn('item.id', $id)->findAll();
     }
 }

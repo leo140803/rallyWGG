@@ -41,7 +41,7 @@
             position: absolute;
         }
 
-        .g1 {
+        .gedung-biru {
             z-index: 3;
             width: 100vw;
             height: 100vh;
@@ -49,43 +49,42 @@
         }
 
 
-        .g2 {
+        .gedung-ungu {
             width: 100vw;
             height: 100vh;
             z-index: 2;
             position: absolute;
         }
 
-        .g3 {
+        .gedung-hijau {
             width: 100vw;
             height: 100vh;
             z-index: 6;
             position: absolute;
         }
 
-        .g4 {
+        .gedung-kuning {
             width: 100vw;
             height: 100vh;
             z-index: 5;
             position: absolute;
         }
 
-        .g8 {
+        .bianglala {
             width: 100vw;
             height: 100vh;
             z-index: 4;
             position: absolute;
         }
 
-        .g5,
-        .g6 {
+        .gedung-orange, .gedung-merah {
             width: 100vw;
             height: 100vh;
             z-index: 7;
             position: absolute;
         }
 
-        .g7 {
+        .mobil-mewah {
             width: 100vw;
             height: 100vh;
             z-index: 11;
@@ -519,202 +518,47 @@
             <div class="dot"></div>
         </section>
     </div>
+
     <div class="shop">
         <div class="row mt-5">
             <div class="col-3">
-                <img src="public/assets/back.png" alt="" class="img-back">
+                <img src="/assets/back.png" alt="" class="img-back">
             </div>
             <div class="col-6">
                 <div class="row">
                     <!-- ITEM 1 -->
-                    <div class="col-4 card-item">
-                        <img src="public/assets/eco/red-shop.png" alt="" class="img-item">
-                        <div class="name">
-                            <h5 class="item-name">Gedung Merah</h5>
-                        </div>
-                        <div class="item-harga">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
-                                </div>
-                                <div class="col-2">
-                                    <h5 class="price-shop">5</h5>
-                                </div>
+                    <?php foreach($shop as $s): ?>
+                        <div class="col-4 card-item">
+                            <img src="<?= $s['shop_image']; ?>" alt="" class="img-item">
+                            <div class="name">
+                                <h5 class="item-name"><?= strtoupper($s['nama']); ?></h5>
                             </div>
-                            <!-- IKI VALUE E SESUAI ID E SG RUSAK NGAB -->
-                            <button class="btn-buy" value="g6">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
-                                <h5 class="text-buy">BUY!</h5>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- ITEM 2 -->
-                    <div class="col-4 card-item">
-                        <img src="public/assets/eco/orange-shop.png" alt="" class="img-item">
-                        <div class="name">
-                            <h5 class="item-name">Gedung Orange</h5>
-                        </div>
-                        <div class="item-harga">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
+                            <div class="item-harga">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img src="/assets/coin.png" alt="" class="coin-shop">
+                                    </div>
+                                    <div class="col-2">
+                                        <h5 class="price-shop"><?= $s['harga']; ?></h5>
+                                    </div>
                                 </div>
-                                <div class="col-2">
-                                    <h5 class="price-shop">8</h5>
-                                </div>
+                                <!-- IKI VALUE E SESUAI ID E SG RUSAK NGAB -->
+                                <button class="btn-buy" value="<?= $s['id']; ?>">
+                                    <img src="/assets/cart.png" alt="" class="img-cart">
+                                    <h5 class="text-buy">BUY!</h5>
+                                </button>
                             </div>
-                            <button class="btn-buy" value="g5">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
-                                <h5 class="text-buy">BUY!</h5>
-                            </button>
                         </div>
-                    </div>
-
-                    <!-- ITEM 3 -->
-                    <div class="col-4 card-item">
-                        <img src="public/assets/eco/yellow-shop.png" alt="" class="img-item">
-                        <div class="name">
-                            <h5 class="item-name">Gedung Kuning</h5>
-                        </div>
-                        <div class="item-harga">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
-                                </div>
-                                <div class="col-2">
-                                    <h5 class="price-shop">10</h5>
-                                </div>
-                            </div>
-                            <button class="btn-buy" value="g4">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
-                                <h5 class="text-buy">BUY!</h5>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-4 card-item">
-                        <img src="public/assets/eco/green-shop.png" alt="" class="img-item">
-                        <div class="name">
-                            <h5 class="item-name">Gedung Hijau</h5>
-                        </div>
-                        <div class="item-harga">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
-                                </div>
-                                <div class="col-2">
-                                    <h5 class="price-shop">12</h5>
-                                </div>
-                            </div>
-                            <button class="btn-buy" value="g3">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
-                                <h5 class="text-buy">BUY!</h5>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-4 card-item">
-                        <img src="public/assets/eco/blue-shop.png" alt="" class="img-item">
-                        <div class="name">
-                            <h5 class="item-name">Gedung Biru</h5>
-                        </div>
-                        <div class="item-harga">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
-                                </div>
-                                <div class="col-2">
-                                    <h5 class="price-shop">15</h5>
-                                </div>
-                            </div>
-                            <button class="btn-buy" value="g1">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
-                                <h5 class="text-buy">BUY!</h5>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-4 card-item">
-                        <img src="public/assets/eco/purple-shop.png" alt="" class="img-item">
-                        <div class="name">
-                            <h5 class="item-name">Gedung Ungu</h5>
-                        </div>
-                        <div class="item-harga">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
-                                </div>
-                                <div class="col-2">
-                                    <h5 class="price-shop">20</h5>
-                                </div>
-                            </div>
-                            <button class="btn-buy" value="g2">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
-                                <h5 class="text-buy">BUY!</h5>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-4 card-item">
-                        <img src="public/assets/eco/bianglala-shop.png" alt="" class="img-item">
-                        <div class="name">
-                            <h5 class="item-name">Bianglala</h5>
-                        </div>
-                        <div class="item-harga">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
-                                </div>
-                                <div class="col-2">
-                                    <h5 class="price-shop">7</h5>
-                                </div>
-                            </div>
-                            <button class="btn-buy" value="g8">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
-                                <h5 class="text-buy">BUY!</h5>
-                            </button>
-                        </div>
-                    </div>
-
-
-                    <div class="col-4 card-item">
-                        <img src="public/assets/eco/car-shop.png" alt="" class="img-item">
-                        <div class="name">
-                            <h5 class="item-name">Mobil Mewah</h5>
-                        </div>
-                        <div class="item-harga">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="public/assets/coin.png" alt="" class="coin-shop">
-                                </div>
-                                <div class="col-2">
-                                    <h5 class="price-shop">15</h5>
-                                </div>
-                            </div>
-                            <button class="btn-buy" value="g7">
-                                <img src="public/assets/cart.png" alt="" class="img-cart">
-                                <h5 class="text-buy">BUY!</h5>
-                            </button>
-                        </div>
-                    </div>
-
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
     </div>
 
-
-
     <div class="main">
         <button class="btn-coin">
-            <img src="public/assets/coin.png" alt="Coin Image" class="img-coin">
-            <h5 class="jumlah-coin">200</h5>
+            <img src="/assets/coin.png" alt="Coin Image" class="img-coin">
+            <h5 class="jumlah-coin"><?= $coin->poin; ?></h5>
             <span class="text-shop">SHOP!</span>
         </button>
 
@@ -726,37 +570,10 @@
             <div class="text">EXIT</div>
         </button>
 
-
-        <!-- BACKGROUND -->
-        <img src="public\assets\eco\background.PNG" alt="" class="background">
-        <img src="public\assets\eco\sky.PNG" alt="" class="sky">
-        <img src="public\assets\eco\road.PNG" alt="" class="road">
-
-
-        <!-- GEDUNG -->
-        <img src="public\assets\eco\blue1.PNG" alt="" class="g1 buy">
-        <img src="public\assets\eco\blue2.PNG" alt="" class="g1 buy">
-        <img src="public\assets\eco\purple.PNG" alt="" class="g2 buy">
-        <img src="public\assets\eco\green1.PNG" alt="" class="g3 buy">
-        <img src="public\assets\eco\green2.PNG" alt="" class="g3 buy">
-        <img src="public\assets\eco\yellow1.PNG" alt="" class="g4 buy">
-        <img src="public\assets\eco\yellow2.PNG" alt="" class="g4 buy">
-        <img src="public\assets\eco\orange1.PNG" alt="" class="g5 buy">
-        <img src="public\assets\eco\orange2.PNG" alt="" class="g5 buy">
-        <img src="public\assets\eco\red.PNG" alt="" class="g6 buy">
-
-        <!-- MOBIL -->
-        <img src="public\assets\eco\car1.PNG" alt="" class="g7 buy">
-        <img src="public\assets\eco\car2.PNG" alt="" class="g7 buy">
-        <img src="public\assets\eco\car3.PNG" alt="" class="g7 buy">
-        <img src="public\assets\eco\car4.PNG" alt="" class="g7 buy">
-        <img src="public\assets\eco\car5.PNG" alt="" class="g7 buy">
-
-        <!-- BIANGLALA -->
-        <img src="public\assets\eco\bianglala.PNG" alt="" class="g8 buy">
-
+        <?php foreach($display as $d): ?>
+            <img src="<?= $d['image']; ?>" alt="<?= $d['nama']; ?>" class="<?= str_replace(' ', '-', strtolower($d['nama'])); ?> objects" id="<?= $d['id']; ?>">
+        <?php endforeach; ?>
     </div>
-
 
     <div class="footer">
         <i>Develop City's Economic!</i>
@@ -776,10 +593,11 @@
             })
 
             $(".btn-buy").click(function() {
-                name = $(this).parent().parent().children(".name").children(".item-name").text();
-                harga = $(this).parent().children(".row").children(".col-2").children(".price-shop").text();
-                sure = "Apakah yakin ingin membeli " + name + " dengan harga " + harga + " koin?";
-                group = $(this).val();
+                let name = $(this).parent().parent().children(".name").children(".item-name").text();
+                let harga = $(this).parent().children(".row").children(".col-2").children(".price-shop").text();
+                let sure = "Apakah yakin ingin membeli " + name + " dengan harga " + harga + " koin?";
+                let group = $(this).val();
+                let buy_btn = $(this);
                 Swal.fire({
                     text: sure,
                     icon: 'question',
@@ -789,43 +607,37 @@
                     confirmButtonText: 'Yes, buy!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        $(".shop").css("display", "none");
-                        $(".loader").show().delay(1000).fadeOut();
-                        $("." + group).css({
-                            'display': 'block',
-                            'animation': 'newPurchase 6s ease-in-out'
+                        $.ajax({
+                            url: "/buy",
+                            type: "POST",
+                            data: {
+                                'item_id': group,
+                            },
+                            success: function(data) {
+                                data = JSON.parse(data);
+                                Swal.fire({
+                                    title: data.response.title,
+                                    text: data.response.text,
+                                    icon: data.response.icon,
+                                    confirmButtonColor: '#A6BB8D',
+                                })
+
+                                if (data.response.icon == 'success') {
+                                    buy_btn.parent().parent().remove();
+                                    $(".shop").css("display", "none");
+                                    $(".loader").show().delay(1000).fadeOut();
+
+                                    $.each(data.item, function(key, value) {
+                                        $(".main").append(`
+                                            <img src="${data.item[key].image}" alt="${data.item[key].nama}" class="${data.item[key].nama.replace(' ', '-').toLowerCase()}">`
+                                        );
+                                        $("." + data.item[key].nama.replace(' ', '-').toLowerCase()).css("animation", "newPurchase 6s ease-in-out");
+                                    })
+                                    $(".jumlah-coin").html(data.coin.poin);
+                                }
+                            }
                         })
-
-
-
                         //NGAB, iki AJAX e tak comment sek yo, buat aku gae js e
-
-                        // $.ajax({
-                        //     url: "/buy",
-                        //     type: "POST",
-                        //     data: {
-                        //         'variant_id': group,
-                        //     },
-                        //     success: function(data) {
-                        //         data = JSON.parse(data);
-                        //         Swal.fire({
-                        //             title: data.title,
-                        //             text: data.text,
-                        //             icon: data.icon,
-                        //             confirmButtonColor: '#A6BB8D',
-                        //         })
-
-                        //         if (data.icon == 'success') {
-                        //             $(".shop").css("display", "none");
-                        //             $(".loader").show().delay(5000).fadeOut();
-                        //             $(".g2").css("display", "none");
-                        //             $(".g2-repair").css({
-                        //                 'display': 'block',
-                        //                 'animation': 'newPurchase 10s ease-in-out',
-                        //             });
-                        //         }
-                        //     }
-                        // })
                     }
                 })
             })

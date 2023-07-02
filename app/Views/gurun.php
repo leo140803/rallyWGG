@@ -651,16 +651,16 @@
                                 })
 
                                 if (data.response.icon == 'success') {
-                                    console.log(buy_btn.parent().parent().remove());
-                                    // $(this).parent().parent().remove();
+                                    buy_btn.parent().parent().remove();
                                     $(".shop").css("display", "none");
                                     $(".loader").show().delay(1000).fadeOut();
+                                    
                                     $.each(data.item, function(key, value) {
                                         $(".main").find("." + data.item[key].nama.replace(' ', '-').toLowerCase()).remove();
                                         $(".main").append(`
-                                            <img src="${data.item[key].image}" alt="${data.item[key].nama}" class="${data.item[key].nama.replace(' ', '-').toLowerCase()}" id="${data.item[key].id}">`
+                                            <img src="${data.item[key].image}" alt="${data.item[key].nama}" class="${data.item[key].nama.replace(' ', '-').toLowerCase()}">`
                                         );
-                                        $("#" + data.item[key].id).css("animation", "newPurchase 6s ease-in-out");
+                                        $("." + data.item[key].nama.replace(' ', '-').toLowerCase()).css("animation", "newPurchase 6s ease-in-out");
                                     })
                                     console.log(data.coin.poin)
                                     $(".jumlah-coin").html(data.coin.poin);
